@@ -1,12 +1,9 @@
-# VHX PHP Node Bindings
+# VHX PHP API Client (BETA)
 
 You can sign up for a VHX account at https://vhx.tv.
 
-### Requirements
-
-PHP 5.3.3 and later.
-
 ### Installation
+Requires PHP 5.3.3 and later.
 
 **Composer**
 
@@ -42,22 +39,20 @@ require_once('/path/to/vhx-php/init.php');
 
 ### Documentation
 
-Documentation is available at http://dev.vhx.tv/docs/api/php.
-Full API reference is available at http://dev.vhx.tv/docs/api?php.
+Documentation, including a step-by-step tutorial is available on the [VHX Developer Docs ](http://dev.vhx.tv/api?php) site.
+For Full API reference [go here](http://dev.vhx.tv/docs/api?php).
 
 ### Getting Started
 
-Every resource is accessed via the `\VHX` namespace:
+Before requesting your first resource, you must setup your instance with your VHX API key:
 
 ```php
 \VHX\API::setKey('your VHX API key');
 ```
 
-Every resource method has one arguments. The argument is an options array.
+Every resource is accessed via the `\VHX` namespace:
 
 ```php
-
-// \VHX\{resource}::{method}(options);
 
 // example customer create
 $customer = \VHX\Customers::create(array(
@@ -66,8 +61,6 @@ $customer = \VHX\Customers::create(array(
   subscription => 'https://api.vhx.tv/subscriptions/1'
 });
 ```
-
-You can get a step-by-step tutorial on how to use the [VHX PHP API on our developer docs](https://dev.vhx.tv/api#php).
 
 ### Resources & methods
 
@@ -83,7 +76,9 @@ collections
   * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_collection)
   * [`list`](http://dev.vhx.tv/docs/api?php#list_collections)
 
- customers
+  [`items`](http://dev.vhx.tv/docs/api?php#list_collection_items)
+
+customers
   * [`create`](http://dev.vhx.tv/docs/api?php#create_customer)
   * [`update`](http://dev.vhx.tv/docs/api?php#update_customer)
   * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_customer)
