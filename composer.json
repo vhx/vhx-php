@@ -1,0 +1,27 @@
+{
+  "name": "vhx/vhx-php",
+  "version": "0.1.0",
+  "description": "VHX PHP API Wrapper",
+  "keywords": [
+    "vhx",
+    "video",
+    "api"
+  ],
+  "homepage": "https://github.com/vhx/vhx-php",
+  "author": "VHX",
+  "contributors": [
+      "Scott Robertson <scott@vhx.tv>",
+      "Kevin Sheurs <kevin@vhx.tv>"
+  ],
+  "require": {
+    "php": ">=5.3.3",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*"
+  },
+  "require-dev": {},
+  "autoload": {
+    "psr-4": { "VHX\\" : "lib/" }
+  },
+  "license": "MIT"
+}
