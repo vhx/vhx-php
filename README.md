@@ -1,11 +1,11 @@
 # VHX PHP API Client (BETA)
 
-You can sign up for a VHX account at https://vhx.tv.
+The VHX API is currently Private Beta. You can request an API key by emailing api@vhx.tv.
 
 ### Installation
 Requires PHP 5.3.3 and later.
 
-**Composer**
+<!-- **Composer**
 
 You can install the bindings via [Composer](http://getcomposer.org/). Add this to your `composer.json`:
 
@@ -27,11 +27,11 @@ Then use Composer's [autoload](https://getcomposer.org/doc/00-intro.md#autoloadi
 
 ```php
 require_once('vendor/autoload.php');
-```
+``` -->
 
-**Manual**
-
-You can also download the [latest release](https://github.com/vhx/vhx-php/releases). Then simply include the `init.php` file.
+<!-- **Manual** -->
+<!-- You can also download the -->
+Download the [latest release](https://github.com/vhx/vhx-php/releases). Then simply include the `init.php` file.
 
 ```php
 require_once('/path/to/vhx-php/init.php');
