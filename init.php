@@ -12,8 +12,8 @@ require(dirname(__FILE__) . '/lib/resources/videos.php');
 
 // Errors
 require(dirname(__FILE__) . '/lib/errors/base.php');
-// require(dirname(__FILE__) . '/lib/Error/Api.php');
-// require(dirname(__FILE__) . '/lib/Error/ApiConnection.php');
-// require(dirname(__FILE__) . '/lib/Error/Authentication.php');
+require(dirname(__FILE__) . '/lib/errors/api.php');
+require(dirname(__FILE__) . '/lib/errors/connection.php');
+require(dirname(__FILE__) . '/lib/errors/authentication.php');
 require(dirname(__FILE__) . '/lib/errors/invalidRequest.php');
-// require(dirname(__FILE__) . '/lib/Error/RateLimit.php');
+require(dirname(__FILE__) . '/lib/errors/resourceNotFound.php');

@@ -5,11 +5,17 @@ namespace VHX\Error;
 use Exception;
 
 abstract class Base extends Exception {
-  public function __construct($message, $http_status = null, $http_body = null, $json_body = null, $http_headers = null) {
-    $this->message      = $message;
-    $this->httpStatus   = $http_status;
-    $this->httpBody     = $http_body;
-    $this->jsonBody     = $json_body;
-    $this->httpHeaders  = $http_headers;
+  public function __construct($message, $http_status = null) {
+    $this->message  = $message;
+    $this->httpStatus  = $http_status;
+  }
+  public function getHttpStatus() {
+    return $this->httpStatus;
+  }
+  public function getErrorResponse() {
+    return json_decode($this->message, true);
+  }
+  public function getErrorJSONResponse() {
+    return $this->message;
   }
 }
