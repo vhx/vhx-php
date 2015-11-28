@@ -21,7 +21,7 @@ class Resource {
       return;
     else:
       $message = 'You must provide a UUID when making an ' . $request . ' request.';
-      throw new Error\InvalidRequest($message);
+      throw new Error\InvalidRequest($message, 400);
     endif;
   }
 
@@ -36,7 +36,6 @@ class Resource {
     if ($method === 'POST' || $method === 'PUT'):
       curl_setopt($curl, CURLOPT_POST, 1);
       if ($data):
-        var_dump($data);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
       endif;
     endif;
@@ -48,48 +47,86 @@ class Resource {
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
     curl_setopt($curl, CURLOPT_USERPWD, API::$key . ':');
     curl_setopt($curl, CURLOPT_URL, $url);
+    curl_setopt($curl, CURLOPT_VERBOSE, 1);
+    curl_setopt($curl, CURLOPT_HEADER, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 30);
     curl_setopt($curl, CURLOPT_TIMEOUT, 80);
 
     $result = curl_exec($curl);
 
-    if (curl_errno($curl)) {
-      die('Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl));
+    if ($result === false):
+      $errno = curl_errno($curl);
+      $message = curl_error($curl);
       curl_close($curl);
-    }
-    else {
-      return $result;
+      return self::_handleCurlError($url, $errno, $message);
+    else:
+      $header_size = curl_getinfo($curl, CURLINFO_HEADER_SIZE);
+      $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+      $body = substr($result, $header_size);
       curl_close($curl);
-    }
+      return self::_handleResponse($body, $code);
+    endif;
   }
 
   protected static function _retrieve($id) {
     self::_hasID($id, 'retrieve');
-    return json_decode(self::_request('GET', self::_getResourceName() . '/' . $id), true);
+    return self::_request('GET', self::_getResourceName() . '/' . $id);
   }
 
   protected static function _list($params) {
-    return json_decode(self::_request('GET', self::_getResourceName() . '/', $params), true);
+    return self::_request('GET', self::_getResourceName() . '/', $params);
   }
 
   protected static function _items($id) {
     self::_hasID($id, 'items');
-    return json_decode(self::_request('GET', self::_getResourceName() . '/' . $id . '/items'), true);
+    return self::_request('GET', self::_getResourceName() . '/' . $id . '/items');
   }
 
   protected static function _create($params = null) {
-    return json_decode(self::_request('POST', self::_getResourceName() . '/', $params), true);
+    return self::_request('POST', self::_getResourceName() . '/', $params);
   }
 
   protected static function _update($id, $params = null) {
     self::_hasID($id, 'update');
-    return json_decode(self::_request('PUT', self::_getResourceName() . '/' . $id, $params), true);
+    return self::_request('PUT', self::_getResourceName() . '/' . $id, $params);
   }
 
   protected static function _delete($id) {
     self::_hasID($id, 'delete');
-    return json_decode( self::_request('DELETE', self::_getResourceName() . '/' . $id), true);
+    return self::_request('DELETE', self::_getResourceName() . '/' . $id);
+  }
+
+  protected static function _handleResponse($body, $code) {
+
+    if ($code >= 200 && $code < 300):
+      return json_decode($body, true);
+    else:
+      self::_handleResponseError($body, $code);
+    endif;
+  }
+
+  protected static function _handleResponseError($result, $code) {
+    switch ($code) {
+      case 400:
+        throw new Error\InvalidRequest($result, $code);
+        break;
+      case 401:
+        throw new Error\Authentication($result, $code);
+        break;
+      case 404:
+        throw new Error\ResourceNotFound($result, $code);
+        break;
+      case 408:
+        throw new Error\ApiConnection($result, $code);
+        break;
+      case 500:
+      default:
+        throw new Error\API($result, $code);
+        break;
+    }
+  }
+
   protected static function handleCurlError($url, $errno, $message) {
     switch ($errno) {
       case CURLE_COULDNT_CONNECT:
