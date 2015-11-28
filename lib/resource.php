@@ -49,6 +49,8 @@ class Resource {
     curl_setopt($curl, CURLOPT_USERPWD, API::$key . ':');
     curl_setopt($curl, CURLOPT_URL, $url);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 30);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 80);
 
     $result = curl_exec($curl);
 
@@ -88,5 +90,17 @@ class Resource {
   protected static function _delete($id) {
     self::_hasID($id, 'delete');
     return json_decode( self::_request('DELETE', self::_getResourceName() . '/' . $id), true);
+  protected static function handleCurlError($url, $errno, $message) {
+    switch ($errno) {
+      case CURLE_COULDNT_CONNECT:
+      case CURLE_COULDNT_RESOLVE_HOST:
+      case CURLE_OPERATION_TIMEOUTED:
+        $msg = "Could not connect to VHX ($url).  Please check your internet connection and try again.  If this problem persists, you should check VHX's service status at https://twitter.com/vhxstatus, http://status.vhx.tv/, or";
+        break;
+      default:
+        $msg = "Unexpected error communicating with VHX. If this problem persists,";
+      }
+      $msg .= " let us know at support@vhx.tv. \n\n(Network error [errno $errno]: $message)";
+      throw new Error\ApiConnection(msg, 408);
   }
 }
