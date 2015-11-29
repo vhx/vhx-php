@@ -47,7 +47,7 @@ For Full API reference [go here](http://dev.vhx.tv/docs/api?php).
 Before requesting your first resource, you must setup your instance with your VHX API key:
 
 ```php
-\VHX\API::setKey('your VHX API key');
+\VHX\Api::setKey('your VHX API key');
 ```
 
 Every resource is accessed via the `\VHX` namespace:

@@ -1,7 +1,8 @@
 ### 0.1.0-beta.3
 **2015-11-28**
 
-* Products, SKUs, and Orders -- https://stripe.com/relay
+* Add composer support
+* Add change log
 
 ### 0.1.0-beta.2
 **2015-11-28**
