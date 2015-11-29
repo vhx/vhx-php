@@ -1,10 +1,10 @@
-### 0.1.0-beta.3
+### 1.0.0-beta.3
 **2015-11-28**
 
 * Add composer support
 * Add change log
 
-### 0.1.0-beta.2
+### 1.0.0-beta.2
 **2015-11-28**
 
 Fixes glaring issues in the "Initial Beta":
@@ -15,7 +15,7 @@ Fixes glaring issues in the "Initial Beta":
 * Handle API connection timeouts
 
 
-### 0.1.0-beta
+### 1.0.0-beta
 **2015-11-24**
 
 Initial Beta Pre-release
