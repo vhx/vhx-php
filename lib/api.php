@@ -2,7 +2,7 @@
 
 namespace VHX;
 
-class API
+class Api
 {
   public static $key;
   const HOST = 'api.vhx.tv';
