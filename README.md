@@ -1,4 +1,4 @@
-# VHX PHP API Client (BETA)
+# VHX PHP API Client
 
 The VHX API is currently Private Beta. You can request an API key by emailing api@vhx.tv.
 
@@ -12,7 +12,7 @@ You can install the bindings via [Composer](http://getcomposer.org/). Add this t
 ```json
 {
   "require": {
-    "vhx/vhx-php": "1.0.*@beta"
+    "vhx/vhx-php": "1.0.*"
   }
 }
 ```
