@@ -27,11 +27,10 @@ Then use Composer's [autoload](https://getcomposer.org/doc/00-intro.md#autoloadi
 
 ```php
 require_once('vendor/autoload.php');
-``` -->
+```
 
-<!-- **Manual** -->
-<!-- You can also download the -->
-Download the [latest release](https://github.com/vhx/vhx-php/releases). Then simply include the `init.php` file.
+**Manual**
+You can also download the [latest release](https://github.com/vhx/vhx-php/releases). Then simply include the `init.php` file.
 
 ```php
 require_once('/path/to/vhx-php/init.php');
