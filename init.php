@@ -1,19 +1,19 @@
 <?php
 
 // Core
-require(dirname(__FILE__) . '/lib/api.php');
-require(dirname(__FILE__) . '/lib/resource.php');
+require(dirname(__FILE__) . '/lib/Api.php');
+require(dirname(__FILE__) . '/lib/Resource.php');
 
 // Resources
-require(dirname(__FILE__) . '/lib/resources/authorizations.php');
-require(dirname(__FILE__) . '/lib/resources/collections.php');
-require(dirname(__FILE__) . '/lib/resources/customers.php');
-require(dirname(__FILE__) . '/lib/resources/videos.php');
+require(dirname(__FILE__) . '/lib/Authorizations.php');
+require(dirname(__FILE__) . '/lib/Collections.php');
+require(dirname(__FILE__) . '/lib/Customers.php');
+require(dirname(__FILE__) . '/lib/Videos.php');
 
 // Errors
-require(dirname(__FILE__) . '/lib/errors/base.php');
-require(dirname(__FILE__) . '/lib/errors/api.php');
-require(dirname(__FILE__) . '/lib/errors/connection.php');
-require(dirname(__FILE__) . '/lib/errors/authentication.php');
-require(dirname(__FILE__) . '/lib/errors/invalidRequest.php');
-require(dirname(__FILE__) . '/lib/errors/resourceNotFound.php');
+require(dirname(__FILE__) . '/lib/Error/Base.php');
+require(dirname(__FILE__) . '/lib/Error/Api.php');
+require(dirname(__FILE__) . '/lib/Error/Connection.php');
+require(dirname(__FILE__) . '/lib/Error/Authentication.php');
+require(dirname(__FILE__) . '/lib/Error/InvalidRequest.php');
+require(dirname(__FILE__) . '/lib/Error/ResourceNotFound.php');

@@ -118,11 +118,11 @@ class Resource {
         throw new Error\ResourceNotFound($result, $code);
         break;
       case 408:
-        throw new Error\ApiConnection($result, $code);
+        throw new Error\Connection($result, $code);
         break;
       case 500:
       default:
-        throw new Error\API($result, $code);
+        throw new Error\Api($result, $code);
         break;
     }
   }
@@ -138,6 +138,6 @@ class Resource {
         $msg = "Unexpected error communicating with VHX. If this problem persists,";
       }
       $msg .= " let us know at support@vhx.tv. \n\n(Network error [errno $errno]: $message)";
-      throw new Error\ApiConnection(msg, 408);
+      throw new Error\Connection(msg, 408);
   }
 }

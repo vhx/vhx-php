@@ -5,14 +5,14 @@ The VHX API is currently Private Beta. You can request an API key by emailing ap
 ### Installation
 Requires PHP 5.3.3 and later.
 
-<!-- **Composer**
+**Composer**
 
 You can install the bindings via [Composer](http://getcomposer.org/). Add this to your `composer.json`:
 
 ```json
 {
   "require": {
-    "vhx/vhx-php": "0.*"
+    "vhx/vhx-php": "1.0.*@beta"
   }
 }
 ```
@@ -27,11 +27,10 @@ Then use Composer's [autoload](https://getcomposer.org/doc/00-intro.md#autoloadi
 
 ```php
 require_once('vendor/autoload.php');
-``` -->
+```
 
-<!-- **Manual** -->
-<!-- You can also download the -->
-Download the [latest release](https://github.com/vhx/vhx-php/releases). Then simply include the `init.php` file.
+**Manual**
+You can also download the [latest release](https://github.com/vhx/vhx-php/releases). Then simply include the `init.php` file.
 
 ```php
 require_once('/path/to/vhx-php/init.php');
@@ -47,7 +46,7 @@ For Full API reference [go here](http://dev.vhx.tv/docs/api?php).
 Before requesting your first resource, you must setup your instance with your VHX API key:
 
 ```php
-\VHX\API::setKey('your VHX API key');
+\VHX\Api::setKey('your VHX API key');
 ```
 
 Every resource is accessed via the `\VHX` namespace:
