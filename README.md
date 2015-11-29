@@ -5,14 +5,14 @@ The VHX API is currently Private Beta. You can request an API key by emailing ap
 ### Installation
 Requires PHP 5.3.3 and later.
 
-<!-- **Composer**
+**Composer**
 
 You can install the bindings via [Composer](http://getcomposer.org/). Add this to your `composer.json`:
 
 ```json
 {
   "require": {
-    "vhx/vhx-php": "0.*"
+    "vhx/vhx-php": "1.0.*@beta"
   }
 }
 ```
