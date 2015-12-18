@@ -57,7 +57,7 @@ Every resource is accessed via the `\VHX` namespace:
 $customer = \VHX\Customers::create(array(
   email => 'customer@email.com',
   name => 'First Last',
-  subscription => 'https://api.vhx.tv/subscriptions/1'
+  product => 'https://api.vhx.tv/products/1'
 });
 ```
 
@@ -67,13 +67,13 @@ videos
   * [`create`](http://dev.vhx.tv/docs/api?php#create_customer)
   * [`update`](http://dev.vhx.tv/docs/api?php#update_customer)
   * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_customer)
-  * [`list`](http://dev.vhx.tv/docs/api?php#list_customers)
+  * [`all`](http://dev.vhx.tv/docs/api?php#list_customers)
 
 collections
   * [`create`](http://dev.vhx.tv/docs/api?php#create_collection)
   * [`update`](http://dev.vhx.tv/docs/api?php#update_collection)
   * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_collection)
-  * [`list`](http://dev.vhx.tv/docs/api?php#list_collections)
+  * [`all`](http://dev.vhx.tv/docs/api?php#list_collections)
 
   [`items`](http://dev.vhx.tv/docs/api?php#list_collection_items)
 
@@ -81,7 +81,7 @@ customers
   * [`create`](http://dev.vhx.tv/docs/api?php#create_customer)
   * [`update`](http://dev.vhx.tv/docs/api?php#update_customer)
   * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_customer)
-  * [`list`](http://dev.vhx.tv/docs/api?php#list_customers)
+  * [`all`](http://dev.vhx.tv/docs/api?php#list_customers)
 
 authorizations
   * [`create`](http://dev.vhx.tv/docs/api?php#create_authorization)
