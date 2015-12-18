@@ -74,8 +74,7 @@ collections
   * [`update`](http://dev.vhx.tv/docs/api?php#update_collection)
   * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_collection)
   * [`all`](http://dev.vhx.tv/docs/api?php#list_collections)
-
-  [`items`](http://dev.vhx.tv/docs/api?php#list_collection_items)
+  * [`items`](http://dev.vhx.tv/docs/api?php#list_collection_items)
 
 customers
   * [`create`](http://dev.vhx.tv/docs/api?php#create_customer)
