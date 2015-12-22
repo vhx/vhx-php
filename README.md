@@ -63,6 +63,15 @@ $customer = \VHX\Customers::create(array(
 
 ### Resources & methods
 
+products
+  * [`retrieve`](http://dev.vhx.tv/docs/api/?php#product-retrieve)
+  * [`all`](http://dev.vhx.tv/docs/api/?php#product-list)
+
+customers
+  * [`create`](http://dev.vhx.tv/docs/api/?php#customer-create)
+  * [`retrieve`](http://dev.vhx.tv/docs/api/?php#customer-retrieve)
+  * [`all`](http://dev.vhx.tv/docs/api/?php#customer-list)
+
 videos
   * [`create`](http://dev.vhx.tv/docs/api/?php#videos-create)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#videos-get)
@@ -75,15 +84,6 @@ collections
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#collections-retrieve)
   * [`all`](http://dev.vhx.tv/docs/api/?php#collections-list)
   * [`items`](http://dev.vhx.tv/docs/api/?php#collection-items-list)
-
-customers
-  * [`create`](http://dev.vhx.tv/docs/api/?php#customer-create)
-  * [`retrieve`](http://dev.vhx.tv/docs/api/?php#customer-retrieve)
-  * [`all`](http://dev.vhx.tv/docs/api/?php#customer-list)
-
-products
-  * [`retrieve`](http://dev.vhx.tv/docs/api/?php#product-retrieve)
-  * [`all`](http://dev.vhx.tv/docs/api/?php#product-list)
 
 authorizations
   * [`create`](http://dev.vhx.tv/docs/api/?php#authorizations-create)
