@@ -83,11 +83,16 @@ class Resource {
     return self::_request('GET', self::_getResourceName() . '/' . $id . '/items');
   }
 
-  protected static function _create($params = null) {
+  protected static function _files($id, $params) {
+    self::_hasID($id, 'video files');
+    return self::_request('GET', self::_getResourceName() . '/' . $id . '/files', $params);
+  }
+
+  protected static function _create($params) {
     return self::_request('POST', self::_getResourceName() . '/', $params);
   }
 
-  protected static function _update($id, $params = null) {
+  protected static function _update($id, $params) {
     self::_hasID($id, 'update');
     return self::_request('PUT', self::_getResourceName() . '/' . $id, $params);
   }
