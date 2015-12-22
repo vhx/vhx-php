@@ -1,3 +1,8 @@
+### 1.1.0
+**2015-12-22**
+
+* Add methods for products api endpoint
+
 ### 1.0.1
 **2015-12-21**
 

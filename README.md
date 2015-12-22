@@ -12,7 +12,7 @@ You can install the bindings via [Composer](http://getcomposer.org/). Add this t
 ```json
 {
   "require": {
-    "vhx/vhx-php": "1.0.*"
+    "vhx/vhx-php": "1.1.*"
   }
 }
 ```
@@ -68,6 +68,7 @@ videos
   * [`update`](http://dev.vhx.tv/docs/api?php#update_customer)
   * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_customer)
   * [`all`](http://dev.vhx.tv/docs/api?php#list_customers)
+  * [`files`](http://dev.vhx.tv/docs/api?php#list_customers)
 
 collections
   * [`create`](http://dev.vhx.tv/docs/api?php#create_collection)
@@ -81,6 +82,10 @@ customers
   * [`update`](http://dev.vhx.tv/docs/api?php#update_customer)
   * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_customer)
   * [`all`](http://dev.vhx.tv/docs/api?php#list_customers)
+
+products
+  * [`retrieve`](http://dev.vhx.tv/docs/api/?php#product-retrieve)
+  * [`all`](http://dev.vhx.tv/docs/api/?php#product-list)
 
 authorizations
   * [`create`](http://dev.vhx.tv/docs/api?php#create_authorization)
