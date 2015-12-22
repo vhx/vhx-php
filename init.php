@@ -8,6 +8,7 @@ require(dirname(__FILE__) . '/lib/Resource.php');
 require(dirname(__FILE__) . '/lib/Authorizations.php');
 require(dirname(__FILE__) . '/lib/Collections.php');
 require(dirname(__FILE__) . '/lib/Customers.php');
+require(dirname(__FILE__) . '/lib/Products.php');
 require(dirname(__FILE__) . '/lib/Videos.php');
 
 // Errors
