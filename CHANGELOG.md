@@ -1,3 +1,10 @@
+### 1.1.0
+**2015-12-22**
+
+* Add methods for products api endpoint
+* Fix readme links
+* Allow parameters for items methods
+
 ### 1.0.1
 **2015-12-21**
 

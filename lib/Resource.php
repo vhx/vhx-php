@@ -78,9 +78,9 @@ class Resource {
     return self::_request('GET', self::_getResourceName() . '/', $params);
   }
 
-  protected static function _items($id) {
+  protected static function _items($id, $params) {
     self::_hasID($id, 'items');
-    return self::_request('GET', self::_getResourceName() . '/' . $id . '/items');
+    return self::_request('GET', self::_getResourceName() . '/' . $id . '/items', $params);
   }
 
   protected static function _files($id, $params) {

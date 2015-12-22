@@ -12,7 +12,7 @@ You can install the bindings via [Composer](http://getcomposer.org/). Add this t
 ```json
 {
   "require": {
-    "vhx/vhx-php": "1.0.*"
+    "vhx/vhx-php": "1.1.*"
   }
 }
 ```
@@ -63,24 +63,27 @@ $customer = \VHX\Customers::create(array(
 
 ### Resources & methods
 
-videos
-  * [`create`](http://dev.vhx.tv/docs/api?php#create_customer)
-  * [`update`](http://dev.vhx.tv/docs/api?php#update_customer)
-  * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_customer)
-  * [`all`](http://dev.vhx.tv/docs/api?php#list_customers)
-
-collections
-  * [`create`](http://dev.vhx.tv/docs/api?php#create_collection)
-  * [`update`](http://dev.vhx.tv/docs/api?php#update_collection)
-  * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_collection)
-  * [`all`](http://dev.vhx.tv/docs/api?php#list_collections)
-  * [`items`](http://dev.vhx.tv/docs/api?php#list_collection_items)
+products
+  * [`retrieve`](http://dev.vhx.tv/docs/api/?php#product-retrieve)
+  * [`all`](http://dev.vhx.tv/docs/api/?php#product-list)
 
 customers
-  * [`create`](http://dev.vhx.tv/docs/api?php#create_customer)
-  * [`update`](http://dev.vhx.tv/docs/api?php#update_customer)
-  * [`retrieve`](http://dev.vhx.tv/docs/api?php#retrieve_customer)
-  * [`all`](http://dev.vhx.tv/docs/api?php#list_customers)
+  * [`create`](http://dev.vhx.tv/docs/api/?php#customer-create)
+  * [`retrieve`](http://dev.vhx.tv/docs/api/?php#customer-retrieve)
+  * [`all`](http://dev.vhx.tv/docs/api/?php#customer-list)
+
+videos
+  * [`create`](http://dev.vhx.tv/docs/api/?php#videos-create)
+  * [`retrieve`](http://dev.vhx.tv/docs/api/?php#videos-get)
+  * [`all`](http://dev.vhx.tv/docs/api/?php#videos-list)
+  * [`files`](http://dev.vhx.tv/docs/api/?php#videos-list-files)
+
+collections
+  * [`create`](http://dev.vhx.tv/docs/api/?php#collections-create)
+  * [`update`](http://dev.vhx.tv/docs/api/?php#collections-update)
+  * [`retrieve`](http://dev.vhx.tv/docs/api/?php#collections-retrieve)
+  * [`all`](http://dev.vhx.tv/docs/api/?php#collections-list)
+  * [`items`](http://dev.vhx.tv/docs/api/?php#collection-items-list)
 
 authorizations
-  * [`create`](http://dev.vhx.tv/docs/api?php#create_authorization)
+  * [`create`](http://dev.vhx.tv/docs/api/?php#authorizations-create)
