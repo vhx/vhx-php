@@ -18,7 +18,7 @@ class Videos extends Resource {
   public static function update($id = null, $params = array()) {
     return self::_update($id, $params);
   }
-  public static function items($id) {
+  public static function items($id = null) {
     return self::_update($id);
   }
 }
