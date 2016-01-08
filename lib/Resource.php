@@ -25,6 +25,45 @@ class Resource {
     endif;
   }
 
+  private static function _getType() {
+    $resource = self::_getResourceName();
+
+    if ($resource === 'videos'):
+      return 'video';
+    elseif ($resource === 'collections'):
+      return 'collection';
+    else:
+      return 'id';
+    endif;
+  }
+
+  private static function _parseHref($href) {
+    if (intval($href, 10)):
+      return $href;
+    elseif (strrpos($href, API::HOST)):
+      if (substr($href, -1) === '/'):
+        $href = substr($href, 0, -1);
+      endif;
+      $val = explode('/', $href);
+      return $val[count($val)-1];
+    endif;
+  }
+
+  private static function _getParameters($a, $b) {
+    $params = array();
+    $type = self::_getType();
+    if (is_array($a)):
+      $params['id'] =  self::_parseHref($a[$type]);
+      unset($a[$type]);
+      $params['query'] = $b;
+    else:
+      $params['id'] = $a;
+      $params['query'] = $b;
+    endif;
+
+    return $params;
+  }
+
   private static function _request($method, $path, $data = array()) {
     $curl = curl_init();
     $url = API::PROTOCOL . API::HOST . '/' . $path;
@@ -78,14 +117,17 @@ class Resource {
     return self::_request('GET', self::_getResourceName() . '/', $params);
   }
 
-  protected static function _items($id, $params) {
-    self::_hasID($id, 'items');
-    return self::_request('GET', self::_getResourceName() . '/' . $id . '/items', $params);
+  protected static function _items($id, $query) {
+    $params = self::_getParameters($id, $query);
+    self::_hasID($params['id'], 'items');
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . '/items', $params['query']);
   }
 
-  protected static function _files($id, $params) {
-    self::_hasID($id, 'video files');
-    return self::_request('GET', self::_getResourceName() . '/' . $id . '/files', $params);
+  protected static function _files($a, $b) {
+    $params = self::_getParameters($id, $query);
+
+    self::_hasID($params['id'], 'video files');
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . '/files', $params['query']);
   }
 
   protected static function _create($params) {
@@ -103,7 +145,6 @@ class Resource {
   }
 
   protected static function _handleResponse($body, $code) {
-
     if ($code >= 200 && $code < 300):
       return json_decode($body, true);
     else:
