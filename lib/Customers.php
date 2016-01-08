@@ -12,4 +12,7 @@ class Customers extends Resource {
   public static function create($params = array()) {
     return self::_create($params);
   }
+  public static function delete($id = null, $params = array()) {
+    return self::_delete($id, $params);
+  }
 }
