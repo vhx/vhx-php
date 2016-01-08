@@ -79,6 +79,13 @@ class Resource {
       endif;
     endif;
 
+    if ($method === 'DELETE'):
+      curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
+      if ($data):
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+      endif;
+    endif;
+
     if ($method === 'GET'):
       $url = sprintf("%s?%s", $url, http_build_query($data));
     endif;
@@ -139,9 +146,9 @@ class Resource {
     return self::_request('PUT', self::_getResourceName() . '/' . $id, $params);
   }
 
-  protected static function _delete($id) {
+  protected static function _delete($id, $params) {
     self::_hasID($id, 'delete');
-    return self::_request('DELETE', self::_getResourceName() . '/' . $id);
+    return self::_request('DELETE', self::_getResourceName() . '/' . $id, $params);
   }
 
   protected static function _handleResponse($body, $code) {
