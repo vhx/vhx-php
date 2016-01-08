@@ -71,19 +71,20 @@ customers
   * [`create`](http://dev.vhx.tv/docs/api/?php#customer-create)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#customer-retrieve)
   * [`all`](http://dev.vhx.tv/docs/api/?php#customer-list)
+  * [`delete`](http://dev.vhx.tv/docs/api/?php#customer-delete)
 
 videos
   * [`create`](http://dev.vhx.tv/docs/api/?php#videos-create)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#videos-get)
   * [`all`](http://dev.vhx.tv/docs/api/?php#videos-list)
-  * [`files`](http://dev.vhx.tv/docs/api/?php#videos-list-files)
+  * [`allFiles`](http://dev.vhx.tv/docs/api/?php#videos-list-files)
 
 collections
   * [`create`](http://dev.vhx.tv/docs/api/?php#collections-create)
   * [`update`](http://dev.vhx.tv/docs/api/?php#collections-update)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#collections-retrieve)
   * [`all`](http://dev.vhx.tv/docs/api/?php#collections-list)
-  * [`items`](http://dev.vhx.tv/docs/api/?php#collection-items-list)
+  * [`allItems`](http://dev.vhx.tv/docs/api/?php#collection-items-list)
 
 authorizations
   * [`create`](http://dev.vhx.tv/docs/api/?php#authorizations-create)

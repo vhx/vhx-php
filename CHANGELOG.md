@@ -1,3 +1,9 @@
+### 1.2.0
+**2016-01-08**
+
+* Add customer delete method
+* Alternative methods for collection items (`allItems`) and video files (`allFiles`)
+
 ### 1.1.0
 **2015-12-22**
 
