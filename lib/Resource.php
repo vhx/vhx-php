@@ -20,7 +20,7 @@ class Resource {
     if (isset($id)):
       return;
     else:
-      $message = 'You must provide a UUID when making an ' . $request . ' request.';
+      $message = 'You must provide a ID or HREF when making an ' . $request . ' request.';
       throw new Error\InvalidRequest($message, 400);
     endif;
   }
@@ -123,7 +123,7 @@ class Resource {
     return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . '/items', $params['query']);
   }
 
-  protected static function _files($a, $b) {
+  protected static function _files($id, $query) {
     $params = self::_getParameters($id, $query);
 
     self::_hasID($params['id'], 'video files');
