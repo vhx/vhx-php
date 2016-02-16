@@ -69,6 +69,7 @@ products
 
 customers
   * [`create`](http://dev.vhx.tv/docs/api/?php#customer-create)
+  * [`udpate`](http://dev.vhx.tv/docs/api/?php#customer-update)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#customer-retrieve)
   * [`all`](http://dev.vhx.tv/docs/api/?php#customer-list)
   * [`delete`](http://dev.vhx.tv/docs/api/?php#customer-delete)
