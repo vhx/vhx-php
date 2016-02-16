@@ -1,3 +1,8 @@
+### 1.3.0
+**2016-02-16**
+
+* Add customers `update` method for updating customers
+
 ### 1.2.0
 **2016-01-08**
 
