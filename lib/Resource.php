@@ -121,6 +121,7 @@ class Resource {
   }
 
   protected static function _retrieve($id) {
+    $id = self::_getParameters($id);
     self::_hasID($id, 'retrieve');
     return self::_request('GET', self::_getResourceName() . '/' . $id);
   }
@@ -146,9 +147,10 @@ class Resource {
     return self::_request('POST', self::_getResourceName() . '/', $params);
   }
 
-  protected static function _update($id, $params) {
-    self::_hasID($id, 'update');
-    return self::_request('PUT', self::_getResourceName() . '/' . $id, $params);
+  protected static function _update($id, $query) {
+    $params = self::_getParameters($id, $query);
+    self::_hasID($params['id'], 'update');
+    return self::_request('PUT', self::_getResourceName() . '/' . $params['id'], $params['query']);
   }
 
   protected static function _delete($id, $params) {
