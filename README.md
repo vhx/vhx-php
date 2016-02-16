@@ -12,7 +12,7 @@ You can install the bindings via [Composer](http://getcomposer.org/). Add this t
 ```json
 {
   "require": {
-    "vhx/vhx-php": "1.2.*"
+    "vhx/vhx-php": "1.3.*"
   }
 }
 ```
@@ -69,6 +69,7 @@ products
 
 customers
   * [`create`](http://dev.vhx.tv/docs/api/?php#customer-create)
+  * [`udpate`](http://dev.vhx.tv/docs/api/?php#customer-update)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#customer-retrieve)
   * [`all`](http://dev.vhx.tv/docs/api/?php#customer-list)
   * [`delete`](http://dev.vhx.tv/docs/api/?php#customer-delete)
@@ -77,14 +78,14 @@ videos
   * [`create`](http://dev.vhx.tv/docs/api/?php#videos-create)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#videos-get)
   * [`all`](http://dev.vhx.tv/docs/api/?php#videos-list)
-  * [`allFiles`](http://dev.vhx.tv/docs/api/?php#videos-list-files)
+  * [`files`](http://dev.vhx.tv/docs/api/?php#videos-list-files)
 
 collections
   * [`create`](http://dev.vhx.tv/docs/api/?php#collections-create)
   * [`update`](http://dev.vhx.tv/docs/api/?php#collections-update)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#collections-retrieve)
   * [`all`](http://dev.vhx.tv/docs/api/?php#collections-list)
-  * [`allItems`](http://dev.vhx.tv/docs/api/?php#collection-items-list)
+  * [`items`](http://dev.vhx.tv/docs/api/?php#collection-items-list)
 
 authorizations
   * [`create`](http://dev.vhx.tv/docs/api/?php#authorizations-create)

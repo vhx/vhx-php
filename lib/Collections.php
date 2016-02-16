@@ -18,6 +18,8 @@ class Collections extends Resource {
   public static function items($id = null, $params = array()) {
     return self::_items($id, $params);
   }
+
+  // deprecated (same as items)
   public static function allItems($id = null, $params = array()) {
     return self::_items($id, $params);
   }

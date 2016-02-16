@@ -1,3 +1,10 @@
+### 1.3.0
+**2016-02-16**
+
+* Add customers `update` method for updating customers
+* Fix bug with using href as param (instead of ID)
+* Restore readme to reference `files` (videos resource) and `items` (collections resource)
+
 ### 1.2.0
 **2016-01-08**
 
