@@ -49,9 +49,14 @@ class Resource {
     endif;
   }
 
-  private static function _getParameters($a, $b) {
+  private static function _getParameters($a, $b = null) {
     $params = array();
     $type = self::_getType();
+
+    if (!isset($b)):
+      return self::_parseHref($a);
+    endif;
+
     if (is_array($a)):
       $params['id'] =  self::_parseHref($a[$type]);
       unset($a[$type]);
