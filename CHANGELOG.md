@@ -1,3 +1,8 @@
+### 1.4.0
+**2016-02-18**
+
+* Add customers `addProduct` and `removeProduct` methods
+
 ### 1.3.0
 **2016-02-16**
 
