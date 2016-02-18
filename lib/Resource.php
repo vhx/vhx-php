@@ -54,7 +54,7 @@ class Resource {
     $type = self::_getType();
 
     if (!isset($b)):
-      return self::_parseHref($a);
+      $params['id'] = self::_parseHref($a);
     endif;
 
     if (is_array($a)):
@@ -62,7 +62,7 @@ class Resource {
       unset($a[$type]);
       $params['query'] = $b;
     else:
-      $params['id'] = $a;
+      $params['id'] = self::_parseHref($a);
       $params['query'] = $b;
     endif;
 
@@ -121,9 +121,9 @@ class Resource {
   }
 
   protected static function _retrieve($id) {
-    $id = self::_getParameters($id);
+    $params = self::_getParameters($id);
     self::_hasID($id, 'retrieve');
-    return self::_request('GET', self::_getResourceName() . '/' . $id);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id']);
   }
 
   protected static function _list($params) {
@@ -138,7 +138,6 @@ class Resource {
 
   protected static function _files($id, $query) {
     $params = self::_getParameters($id, $query);
-
     self::_hasID($params['id'], 'video files');
     return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . '/files', $params['query']);
   }
@@ -147,15 +146,18 @@ class Resource {
     return self::_request('POST', self::_getResourceName() . '/', $params);
   }
 
-  protected static function _update($id, $query) {
+  protected static function _update($id, $query, $scope = null) {
+    $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id, $query);
     self::_hasID($params['id'], 'update');
-    return self::_request('PUT', self::_getResourceName() . '/' . $params['id'], $params['query']);
+    return self::_request('PUT', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
   }
 
-  protected static function _delete($id, $params) {
-    self::_hasID($id, 'delete');
-    return self::_request('DELETE', self::_getResourceName() . '/' . $id, $params);
+  protected static function _delete($id, $query, $scope = null) {
+    $scope = isset($scope) ? '/' . $scope : '';
+    $params = self::_getParameters($id, $query);
+    self::_hasID($params['id'], 'update');
+    return self::_request('DELETE', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
   }
 
   protected static function _handleResponse($body, $code) {

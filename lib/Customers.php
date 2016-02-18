@@ -18,4 +18,10 @@ class Customers extends Resource {
   public static function delete($id = null, $params = array()) {
     return self::_delete($id, $params);
   }
+  public static function addProduct($id = null, $params = array()) {
+    return self::_update($id, $params, 'products');
+  }
+  public static function removeProduct($id = null, $params = array()) {
+    return self::_delete($id, $params, 'products');
+  }
 }

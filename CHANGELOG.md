@@ -1,3 +1,8 @@
+### 1.4.0
+**2016-02-18**
+* Fix bug with parsing `href`/`id` param
+* Add customers `addProduct` and `removeProduct` methods
+
 ### 1.3.1
 **2016-02-18**
 
