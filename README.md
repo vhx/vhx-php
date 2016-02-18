@@ -1,6 +1,6 @@
 # VHX PHP API Client
 
-The VHX API is currently Private Beta. You can request an API key by emailing api@vhx.tv.
+API applications can be created in the [https://www.vhx.tv/admin/platforms](VHX admin) or by emailing [api@vhx.tv](mailto:api@vhx.tv).
 
 ### Installation
 Requires PHP 5.3.3 and later.
