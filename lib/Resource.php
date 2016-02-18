@@ -138,7 +138,6 @@ class Resource {
 
   protected static function _files($id, $query) {
     $params = self::_getParameters($id, $query);
-
     self::_hasID($params['id'], 'video files');
     return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . '/files', $params['query']);
   }
@@ -148,17 +147,17 @@ class Resource {
   }
 
   protected static function _update($id, $query, $scope = null) {
-    $scope = $scope ? '/' . $scope : '';
+    $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id, $query);
     self::_hasID($params['id'], 'update');
     return self::_request('PUT', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
   }
 
-  protected static function _delete($id, $params, $scope = null) {
-    $scope = $scope ? '/' . $scope : '';
-    $scope = self::_getScope($params);
-    self::_hasID($id, 'delete');
-    return self::_request('DELETE', self::_getResourceName() . '/' . $id . $scope, $params);
+  protected static function _delete($id, $query, $scope = null) {
+    $scope = isset($scope) ? '/' . $scope : '';
+    $params = self::_getParameters($id, $query);
+    self::_hasID($params['id'], 'update');
+    return self::_request('DELETE', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
   }
 
   protected static function _handleResponse($body, $code) {
