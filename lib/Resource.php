@@ -54,7 +54,7 @@ class Resource {
     $type = self::_getType();
 
     if (!isset($b)):
-      return self::_parseHref($a);
+      $params['id'] = self::_parseHref($a);
     endif;
 
     if (is_array($a)):
@@ -62,7 +62,7 @@ class Resource {
       unset($a[$type]);
       $params['query'] = $b;
     else:
-      $params['id'] = $a;
+      $params['id'] = self::_parseHref($a);
       $params['query'] = $b;
     endif;
 
@@ -121,9 +121,9 @@ class Resource {
   }
 
   protected static function _retrieve($id) {
-    $id = self::_getParameters($id);
+    $params = self::_getParameters($id);
     self::_hasID($id, 'retrieve');
-    return self::_request('GET', self::_getResourceName() . '/' . $id);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id']);
   }
 
   protected static function _list($params) {
