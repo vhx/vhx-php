@@ -189,7 +189,7 @@ class Resource {
     }
   }
 
-  protected static function handleCurlError($url, $errno, $message) {
+  protected static function _handleCurlError($url, $errno, $message) {
     switch ($errno) {
       case CURLE_COULDNT_CONNECT:
       case CURLE_COULDNT_RESOLVE_HOST:
@@ -200,6 +200,6 @@ class Resource {
         $msg = "Unexpected error communicating with VHX. If this problem persists,";
       }
       $msg .= " let us know at support@vhx.tv. \n\n(Network error [errno $errno]: $message)";
-      throw new Error\Connection(msg, 408);
+      throw new Error\Connection($msg, 408);
   }
 }

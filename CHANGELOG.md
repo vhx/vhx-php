@@ -1,3 +1,7 @@
+### 1.4.1
+**2016-04-22**
+* Fix typos with handleCurlError method
+
 ### 1.4.0
 **2016-02-18**
 * Fix bug with parsing `href`/`id` param
