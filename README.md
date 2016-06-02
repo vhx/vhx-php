@@ -93,4 +93,4 @@ authorizations
   * [`create`](http://dev.vhx.tv/docs/api/?php#authorizations-create)
 
 analytics
-  * [`report`](http://dev.vhx.tv/docs/api/?php#authorizations-report)
+  * [`report`](http://dev.vhx.tv/docs/api/?php#analytics-report)
