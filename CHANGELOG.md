@@ -1,3 +1,7 @@
+### 1.5.0
+**2016-06-02**
+* Add analytics resource and `report` method
+
 ### 1.4.1
 **2016-04-22**
 * Fix typos with handleCurlError method
