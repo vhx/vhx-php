@@ -12,7 +12,7 @@ You can install the bindings via [Composer](http://getcomposer.org/). Add this t
 ```json
 {
   "require": {
-    "vhx/vhx-php": "1.4.*"
+    "vhx/vhx-php": "1.5.*"
   }
 }
 ```
@@ -91,3 +91,6 @@ collections
 
 authorizations
   * [`create`](http://dev.vhx.tv/docs/api/?php#authorizations-create)
+
+analytics
+  * [`report`](http://dev.vhx.tv/docs/api/?php#analytics-report)
