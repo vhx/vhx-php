@@ -16,6 +16,10 @@ class Collections extends Resource {
     return self::_update($id, $params);
   }
   public static function items($id = null, $params = array()) {
+    if (is_array($id) && isset($id['collection'])) {
+      $params = $id;
+      $id = $id['collection'];
+    }
     return self::_items($id, $params);
   }
 

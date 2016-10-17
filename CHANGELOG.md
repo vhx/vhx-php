@@ -1,3 +1,8 @@
+### 1.5.1
+**2016-10-17**
+
+* Allow passing of collection resource both as the first param or as part of a single params array with key `collection`.
+
 ### 1.5.0
 **2016-08-19**
 
