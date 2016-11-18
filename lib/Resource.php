@@ -11,6 +11,7 @@ class Resource {
     if ($postfix_namespaces = strrchr($class, '\\')) {
       $class = strtolower(substr($postfix_namespaces, 1));
     }
+
     $name = urlencode($class);
     $name = strtolower($name);
     return $name;
@@ -30,6 +31,8 @@ class Resource {
 
     if ($resource === 'videos'):
       return 'video';
+    elseif ($resource === 'watchlist'):
+      return 'customers'
     elseif ($resource === 'collections'):
       return 'collection';
     else:
