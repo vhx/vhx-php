@@ -31,8 +31,6 @@ class Resource {
 
     if ($resource === 'videos'):
       return 'video';
-    elseif ($resource === 'watchlist'):
-      return 'customers'
     elseif ($resource === 'collections'):
       return 'collection';
     else:
@@ -133,16 +131,11 @@ class Resource {
     return self::_request('GET', self::_getResourceName() . '/', $params);
   }
 
-  protected static function _items($id, $query) {
+  protected static function _items($id, $query, $scope = null) {
+    $scope = isset($scope) ? '/' . $scope : 'items';
     $params = self::_getParameters($id, $query);
-    self::_hasID($params['id'], 'items');
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . '/items', $params['query']);
-  }
-
-  protected static function _files($id, $query) {
-    $params = self::_getParameters($id, $query);
-    self::_hasID($params['id'], 'video files');
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . '/files', $params['query']);
+    self::_hasID($params['id'], $scope);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
   }
 
   protected static function _create($params) {

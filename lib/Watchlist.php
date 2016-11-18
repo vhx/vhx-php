@@ -8,7 +8,7 @@ class Watchlist extends Resource {
       $params = $id;
       $id = $id['customer'];
     }
-    return self::_items($id, $params);
+    return self::_items($id, $params, 'watchlist');
   }
   public static function addItem($id, $params = array()) {
     if (is_array($id) && isset($id['customer'])) {
