@@ -7,7 +7,7 @@ class Videos extends Resource {
     return self::_list($params);
   }
   public static function files($id = null, $params = array()) {
-    return self::_files($id, $params);
+    return self::_items($id, $params, 'files');
   }
 
   public static function retrieve($id = null) {
@@ -22,6 +22,6 @@ class Videos extends Resource {
 
   // deprecated (same as files)
   public static function allFiles($id = null, $params = array()) {
-    return self::_files($id, $params);
+    return self::_items($id, $params, 'files');
   }
 }

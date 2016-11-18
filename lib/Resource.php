@@ -13,6 +13,7 @@ class Resource {
     }
     $name = urlencode($class);
     $name = strtolower($name);
+    $name = self::_matchClassToResource($class);
     return $name;
   }
 
@@ -130,16 +131,11 @@ class Resource {
     return self::_request('GET', self::_getResourceName() . '/', $params);
   }
 
-  protected static function _items($id, $query) {
+  protected static function _items($id, $query, $scope = null) {
+    $scope = isset($scope) ? '/' . $scope : 'items';
     $params = self::_getParameters($id, $query);
-    self::_hasID($params['id'], 'items');
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . '/items', $params['query']);
-  }
-
-  protected static function _files($id, $query) {
-    $params = self::_getParameters($id, $query);
-    self::_hasID($params['id'], 'video files');
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . '/files', $params['query']);
+    self::_hasID($params['id'], $scope);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
   }
 
   protected static function _create($params) {
@@ -185,6 +181,17 @@ class Resource {
       case 500:
       default:
         throw new Error\Api($result, $code);
+        break;
+    }
+  }
+
+  protected static function _matchClassToResource($class) {
+    switch ($class) {
+      case 'watchlist':
+        return 'customers';
+        break;
+      default:
+        return $class;
         break;
     }
   }

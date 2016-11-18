@@ -1,3 +1,9 @@
+### 1.6.0
+**2016-11-18**
+
+* Add watchlist resource (an alias to `customers/:id/watchlist`) with `items`, `addItem`, `removeItem` methods.
+* Fix bug with analytics resource not loading when initializing the library manually.
+
 ### 1.5.1
 **2016-10-17**
 
