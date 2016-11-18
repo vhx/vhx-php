@@ -12,7 +12,7 @@ You can install the bindings via [Composer](http://getcomposer.org/). Add this t
 ```json
 {
   "require": {
-    "vhx/vhx-php": "1.5.*"
+    "vhx/vhx-php": "1.6.*"
   }
 }
 ```
@@ -69,12 +69,17 @@ products
 
 customers
   * [`create`](http://dev.vhx.tv/docs/api/?php#customer-create)
-  * [`udpate`](http://dev.vhx.tv/docs/api/?php#customer-update)
+  * [`update`](http://dev.vhx.tv/docs/api/?php#customer-update)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#customer-retrieve)
   * [`all`](http://dev.vhx.tv/docs/api/?php#customer-list)
   * [`delete`](http://dev.vhx.tv/docs/api/?php#customer-delete)
   * [`addProduct`](http://dev.vhx.tv/docs/api/?php#customer-add-product)
   * [`removeProduct`](http://dev.vhx.tv/docs/api/?php#customer-remove-product)
+
+watchlist
+  * [`items`](http://dev.vhx.tv/docs/api/?php#customer-watchlist-items)
+  * [`addItem`](http://dev.vhx.tv/docs/api/?php#customer-watchlist-add-item)
+  * [`removeItem`](http://dev.vhx.tv/docs/api/?php#customer-watchlist-remove-item)
 
 videos
   * [`create`](http://dev.vhx.tv/docs/api/?php#videos-create)
