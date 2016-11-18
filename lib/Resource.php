@@ -11,9 +11,9 @@ class Resource {
     if ($postfix_namespaces = strrchr($class, '\\')) {
       $class = strtolower(substr($postfix_namespaces, 1));
     }
-
     $name = urlencode($class);
     $name = strtolower($name);
+    $name = self::_matchClassToResource($class);
     return $name;
   }
 
@@ -188,6 +188,17 @@ class Resource {
       case 500:
       default:
         throw new Error\Api($result, $code);
+        break;
+    }
+  }
+
+  protected static function _matchClassToResource($class) {
+    switch ($class) {
+      case 'watchlist':
+        return 'customers';
+        break;
+      default:
+        return $class;
         break;
     }
   }
