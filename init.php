@@ -11,6 +11,7 @@ require(dirname(__FILE__) . '/lib/Collections.php');
 require(dirname(__FILE__) . '/lib/Customers.php');
 require(dirname(__FILE__) . '/lib/Products.php');
 require(dirname(__FILE__) . '/lib/Videos.php');
+require(dirname(__FILE__) . '/lib/Watching.php');
 require(dirname(__FILE__) . '/lib/Watchlist.php');
 
 // Errors
