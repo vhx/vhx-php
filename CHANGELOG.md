@@ -1,3 +1,8 @@
+### 1.6.1
+**2016-11-21**
+
+* Fix bug introduced in 1.6.0 that was causing `collections/:id/items` requests to return the wrong response.
+
 ### 1.6.0
 **2016-11-18**
 
