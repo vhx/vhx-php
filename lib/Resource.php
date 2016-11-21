@@ -132,7 +132,7 @@ class Resource {
   }
 
   protected static function _items($id, $query, $scope = null) {
-    $scope = isset($scope) ? '/' . $scope : 'items';
+    $scope = isset($scope) ? '/' . $scope : '/items';
     $params = self::_getParameters($id, $query);
     self::_hasID($params['id'], $scope);
     return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
