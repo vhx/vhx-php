@@ -1,3 +1,8 @@
+### 1.7.0
+**2016-11-29**
+
+* Add watching resource (an alias to `customers/:id/watching`) with the `items` method.
+
 ### 1.6.1
 **2016-11-21**
 

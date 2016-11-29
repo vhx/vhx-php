@@ -121,10 +121,11 @@ class Resource {
     endif;
   }
 
-  protected static function _retrieve($id) {
+  protected static function _retrieve($id, $scope = null) {
+    $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id);
     self::_hasID($id, 'retrieve');
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id']);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope);
   }
 
   protected static function _list($params) {
@@ -190,6 +191,8 @@ class Resource {
       case 'watchlist':
         return 'customers';
         break;
+      case 'watching':
+        return 'customers';
       default:
         return $class;
         break;
