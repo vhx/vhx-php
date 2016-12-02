@@ -84,6 +84,9 @@ watchlist
 watching
   * [`items`](http://dev.vhx.tv/docs/api/?php#customer-watching)
 
+browse
+  * [`all`](http://dev.vhx.tv/docs/api/?php#browse)
+
 videos
   * [`create`](http://dev.vhx.tv/docs/api/?php#videos-create)
   * [`retrieve`](http://dev.vhx.tv/docs/api/?php#videos-get)
