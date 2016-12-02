@@ -7,6 +7,7 @@ require(dirname(__FILE__) . '/lib/Resource.php');
 // Resources
 require(dirname(__FILE__) . '/lib/Authorizations.php');
 require(dirname(__FILE__) . '/lib/Analytics.php');
+require(dirname(__FILE__) . '/lib/Browse.php');
 require(dirname(__FILE__) . '/lib/Collections.php');
 require(dirname(__FILE__) . '/lib/Customers.php');
 require(dirname(__FILE__) . '/lib/Products.php');

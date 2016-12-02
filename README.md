@@ -12,7 +12,7 @@ You can install the bindings via [Composer](http://getcomposer.org/). Add this t
 ```json
 {
   "require": {
-    "vhx/vhx-php": "1.7.*"
+    "vhx/vhx-php": "1.8.*"
   }
 }
 ```
@@ -83,6 +83,9 @@ watchlist
 
 watching
   * [`items`](http://dev.vhx.tv/docs/api/?php#customer-watching)
+
+browse
+  * [`all`](http://dev.vhx.tv/docs/api/?php#browse)
 
 videos
   * [`create`](http://dev.vhx.tv/docs/api/?php#videos-create)

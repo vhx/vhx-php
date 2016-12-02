@@ -1,3 +1,8 @@
+### 1.8.0
+**2016-12-02**
+
+* Add browse resource with the `all` method.
+
 ### 1.7.0
 **2016-11-29**
 
