@@ -2,7 +2,7 @@
 
 namespace VHX;
 
-class Watching extends Resource {
+class Watching extends ApiResource {
   public static function items($id = null, $params = array()) {
     if (is_array($id) && isset($id['customer'])) {
       $params = $id;

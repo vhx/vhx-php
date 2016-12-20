@@ -2,7 +2,7 @@
 
 namespace VHX;
 
-class Authorizations extends Resource {
+class Authorizations extends ApiResource {
   public static function create($params = array()) {
     return self::_create($params);
   }

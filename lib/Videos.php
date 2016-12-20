@@ -2,7 +2,7 @@
 
 namespace VHX;
 
-class Videos extends Resource {
+class Videos extends ApiResource {
   public static function all($params = array()) {
     return self::_list($params);
   }

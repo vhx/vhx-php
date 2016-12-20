@@ -4,7 +4,7 @@ namespace VHX;
 
 use VHX\API;
 
-class Resource {
+class ApiResource {
 
   private static function _getResourceName(){
     $class = get_called_class();

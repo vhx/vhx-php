@@ -19,6 +19,8 @@
   "autoload": {
     "psr-4": { "VHX\\" : "lib/" }
   },
-  "require-dev": {},
+  "require-dev": {
+    "sstalle/php7cc": "^1.1"
+  },
   "license": "MIT"
 }

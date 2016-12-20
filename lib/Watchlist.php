@@ -2,7 +2,7 @@
 
 namespace VHX;
 
-class Watchlist extends Resource {
+class Watchlist extends ApiResource {
   public static function items($id = null, $params = array()) {
     if (is_array($id) && isset($id['customer'])) {
       $params = $id;

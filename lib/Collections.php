@@ -2,7 +2,7 @@
 
 namespace VHX;
 
-class Collections extends Resource {
+class Collections extends ApiResource {
   public static function all($params = array()) {
     return self::_list($params);
   }
