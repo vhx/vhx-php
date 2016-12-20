@@ -2,7 +2,7 @@
 
 namespace VHX;
 
-class Customers extends Resource {
+class Customers extends ApiResource {
   public static function all($params = array()) {
     return self::_list($params);
   }

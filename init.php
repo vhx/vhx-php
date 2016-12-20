@@ -2,7 +2,7 @@
 
 // Core
 require(dirname(__FILE__) . '/lib/Api.php');
-require(dirname(__FILE__) . '/lib/Resource.php');
+require(dirname(__FILE__) . '/lib/ApiResource.php');
 
 // Resources
 require(dirname(__FILE__) . '/lib/Authorizations.php');
