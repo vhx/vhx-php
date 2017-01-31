@@ -50,6 +50,16 @@ class ApiResource {
     endif;
   }
 
+  private static function _parseParams($params) {
+    foreach ($params as $key => $value):
+      if (is_array($value)):
+        $params[$key] = json_encode($value);
+      endif;
+    endforeach;
+
+    return $params;
+  }
+
   private static function _getParameters($a, $b = null) {
     $params = array();
     $type = self::_getType();
@@ -140,14 +150,14 @@ class ApiResource {
   }
 
   protected static function _create($params) {
-    return self::_request('POST', self::_getResourceName() . '/', $params);
+    return self::_request('POST', self::_getResourceName() . '/',  self::_parseParams($params));
   }
 
   protected static function _update($id, $query, $scope = null) {
     $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id, $query);
     self::_hasID($params['id'], 'update');
-    return self::_request('PUT', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
+    return self::_request('PUT', self::_getResourceName() . '/' . $params['id'] . $scope, self::_parseParams($params['query']));
   }
 
   protected static function _delete($id, $query, $scope = null) {
