@@ -41,7 +41,7 @@ class ApiResource {
   private static function _parseHref($href) {
     if (intval($href, 10)):
       return $href;
-    elseif (strrpos($href, API::HOST)):
+    elseif (strrpos($href, API::$host)):
       if (substr($href, -1) === '/'):
         $href = substr($href, 0, -1);
       endif;
@@ -72,7 +72,7 @@ class ApiResource {
 
   private static function _request($method, $path, $data = array()) {
     $curl = curl_init();
-    $url = API::PROTOCOL . API::HOST . '/' . $path;
+    $url = API::$protocol . API::$host . '/' . $path;
 
     if ($method === 'PUT'):
       $data['_method'] = 'PUT';
