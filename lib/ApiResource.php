@@ -80,7 +80,7 @@ class ApiResource {
 
     if ($method === 'POST' || $method === 'PUT'):
       if ($method === 'PUT'):
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
       else:
         curl_setopt($curl, CURLOPT_POST, 1);
       endif;
@@ -150,7 +150,7 @@ class ApiResource {
   }
 
   protected static function _create($params) {
-    return self::_request('POST', self::_getResourceName() . '/',  $params);
+    return self::_request('POST', self::_getResourceName() . '/', $params);
   }
 
   protected static function _update($id, $query, $scope = null) {
