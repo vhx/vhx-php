@@ -79,9 +79,19 @@ class ApiResource {
     endif;
 
     if ($method === 'POST' || $method === 'PUT'):
-      curl_setopt($curl, CURLOPT_POST, 1);
+      if ($method === 'PUT'):
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'PUT');
+      else:
+        curl_setopt($curl, CURLOPT_POST, 1);
+      endif;
+
       if ($data):
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        $data_str = json_encode($data);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data_str);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+          'Content-Type: application/json',
+          'Content-Length: ' . strlen($data_str))
+        );
       endif;
     endif;
 
