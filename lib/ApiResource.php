@@ -50,16 +50,6 @@ class ApiResource {
     endif;
   }
 
-  private static function _parseParams($params) {
-    foreach ($params as $key => $value):
-      if (is_array($value)):
-        $params[$key] = json_encode($value);
-      endif;
-    endforeach;
-
-    return $params;
-  }
-
   private static function _getParameters($a, $b = null) {
     $params = array();
     $type = self::_getType();
@@ -89,9 +79,19 @@ class ApiResource {
     endif;
 
     if ($method === 'POST' || $method === 'PUT'):
-      curl_setopt($curl, CURLOPT_POST, 1);
+      if ($method === 'PUT'):
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+      else:
+        curl_setopt($curl, CURLOPT_POST, 1);
+      endif;
+
       if ($data):
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        $data_str = json_encode($data);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data_str);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+          'Content-Type: application/json',
+          'Content-Length: ' . strlen($data_str))
+        );
       endif;
     endif;
 
@@ -150,14 +150,14 @@ class ApiResource {
   }
 
   protected static function _create($params) {
-    return self::_request('POST', self::_getResourceName() . '/',  self::_parseParams($params));
+    return self::_request('POST', self::_getResourceName() . '/',  $params);
   }
 
   protected static function _update($id, $query, $scope = null) {
     $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id, $query);
     self::_hasID($params['id'], 'update');
-    return self::_request('PUT', self::_getResourceName() . '/' . $params['id'] . $scope, self::_parseParams($params['query']));
+    return self::_request('PUT', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
   }
 
   protected static function _delete($id, $query, $scope = null) {
