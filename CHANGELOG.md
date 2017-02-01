@@ -1,3 +1,8 @@
+### 1.10.0
+**2017-02-01**
+
+* Send data as JSON to allow for greater flexibility. In addition, this ensures the new metadata property works as expected.
+
 ### 1.9.0
 **2016-12-20**
 
