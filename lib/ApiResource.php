@@ -72,14 +72,13 @@ class ApiResource {
 
   private static function _request($method, $path, $data = array(), $headers) {
     $curl = curl_init();
+    $formatted_headers = array();
     $url = API::$protocol . API::$host . '/' . $path;
 
-    if ($headers && is_array($headers)):
-      foreach ($arr as $key => $value):
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $key . ': ' . $value);
+    if (is_array($headers)):
+      foreach ($headers as $key => $value):
+        array_push($formatted_headers, $key . ': ' . $value);
       endforeach;
-    else:
-      $headers = array();
     endif;
 
     if ($method === 'PUT'):
@@ -96,15 +95,16 @@ class ApiResource {
       if ($data):
         $data_str = json_encode($data);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data_str);
-        array_merge($headers, array(
+        $formatted_headers = array_merge($formatted_headers, array(
           'Content-Type: application/json',
           'Content-Length: ' . strlen($data_str))
         );
       endif;
     endif;
 
-    if (count($headers) > 0):
-      curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    if (count($formatted_headers) > 0):
+      var_dump($formatted_headers);
+      curl_setopt($curl, CURLOPT_HTTPHEADER, $formatted_headers);
     endif;
 
     if ($method === 'DELETE'):
@@ -115,7 +115,7 @@ class ApiResource {
     endif;
 
     if ($method === 'GET'):
-      $url = sprintf("%s?%s", $url, http_build_query($data));
+      $url = sprintf("%s?%s", $url, $data ? http_build_query($data) : null);
     endif;
 
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -127,6 +127,7 @@ class ApiResource {
     curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 30);
     curl_setopt($curl, CURLOPT_TIMEOUT, 80);
 
+var_dump(curl_getinfo($curl));
     $result = curl_exec($curl);
 
     if ($result === false):
@@ -147,7 +148,7 @@ class ApiResource {
     $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id);
     self::_hasID($id, 'retrieve');
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, $headers);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, null, $headers);
   }
 
   protected static function _list($params, $headers) {
