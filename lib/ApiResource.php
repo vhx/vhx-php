@@ -70,9 +70,17 @@ class ApiResource {
     return $params;
   }
 
-  private static function _request($method, $path, $data = array()) {
+  private static function _request($method, $path, $data = array(), $headers) {
     $curl = curl_init();
     $url = API::$protocol . API::$host . '/' . $path;
+
+    if ($headers && is_array($headers)):
+      foreach ($arr as $key => $value):
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $key . ': ' . $value);
+      endforeach;
+    else:
+      $headers = array();
+    endif;
 
     if ($method === 'PUT'):
       $data['_method'] = 'PUT';
@@ -88,11 +96,15 @@ class ApiResource {
       if ($data):
         $data_str = json_encode($data);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data_str);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        array_merge($headers, array(
           'Content-Type: application/json',
           'Content-Length: ' . strlen($data_str))
         );
       endif;
+    endif;
+
+    if (count($headers) > 0):
+      curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     endif;
 
     if ($method === 'DELETE'):
