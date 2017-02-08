@@ -3,28 +3,28 @@
 namespace VHX;
 
 class Collections extends ApiResource {
-  public static function all($params = array()) {
-    return self::_list($params);
+  public static function all($params = array(), $headers = null) {
+    return self::_list($params, $headers);
   }
-  public static function retrieve($id = null) {
-    return self::_retrieve($id);
+  public static function retrieve($id = null, $headers = null) {
+    return self::_retrieve($id, $headers);
   }
-  public static function create($params = array()) {
-    return self::_create($params);
+  public static function create($params = array(), $headers = null) {
+    return self::_create($params, $headers);
   }
-  public static function update($id = null, $params = array()) {
-    return self::_update($id, $params);
+  public static function update($id = null, $params = array(), $headers = null) {
+    return self::_update($id, $params, $headers);
   }
-  public static function items($id = null, $params = array()) {
+  public static function items($id = null, $params = array(), $headers = null) {
     if (is_array($id) && isset($id['collection'])) {
       $params = $id;
       $id = $id['collection'];
     }
-    return self::_items($id, $params);
+    return self::_items($id, $params, $headers);
   }
 
   // deprecated (same as items)
-  public static function allItems($id = null, $params = array()) {
-    return self::_items($id, $params);
+  public static function allItems($id = null, $params = array(), $headers = null) {
+    return self::_items($id, $params, $headers);
   }
 }
