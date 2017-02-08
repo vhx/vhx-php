@@ -7,6 +7,6 @@ class Products extends ApiResource {
     return self::_list($params, $headers);
   }
   public static function retrieve($id = null, $headers = null) {
-    return self::_retrieve($id, $headers);
+    return self::_retrieve($id, null, $headers);
   }
 }

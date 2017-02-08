@@ -11,7 +11,7 @@ class Videos extends ApiResource {
   }
 
   public static function retrieve($id = null, $headers = null) {
-    return self::_retrieve($id, $headers);
+    return self::_retrieve($id, null, $headers);
   }
   public static function create($params = array(), $headers = null) {
     return self::_create($params, $headers);
