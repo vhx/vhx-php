@@ -103,7 +103,6 @@ class ApiResource {
     endif;
 
     if (count($formatted_headers) > 0):
-      var_dump($formatted_headers);
       curl_setopt($curl, CURLOPT_HTTPHEADER, $formatted_headers);
     endif;
 
@@ -127,7 +126,6 @@ class ApiResource {
     curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 30);
     curl_setopt($curl, CURLOPT_TIMEOUT, 80);
 
-var_dump(curl_getinfo($curl));
     $result = curl_exec($curl);
 
     if ($result === false):
