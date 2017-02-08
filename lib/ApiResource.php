@@ -147,18 +147,18 @@ class ApiResource {
     $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id);
     self::_hasID($id, 'retrieve');
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, $headers);
   }
 
   protected static function _list($params, $headers) {
-    return self::_request('GET', self::_getResourceName() . '/', $params);
+    return self::_request('GET', self::_getResourceName() . '/', $params, $headers);
   }
 
   protected static function _items($id, $query, $scope = null, $headers) {
     $scope = isset($scope) ? '/' . $scope : '/items';
     $params = self::_getParameters($id, $query);
     self::_hasID($params['id'], $scope);
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query'], $headers);
   }
 
   protected static function _create($params, $headers) {
