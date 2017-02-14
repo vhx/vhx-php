@@ -20,7 +20,9 @@
     "psr-4": { "VHX\\" : "lib/" }
   },
   "require-dev": {
-    "sstalle/php7cc": "^1.1"
+    "sstalle/php7cc": "^1.1",
+    "phpunit/phpunit": "^6.0",
+    "vlucas/phpdotenv": "^2.4"
   },
   "license": "MIT"
 }
