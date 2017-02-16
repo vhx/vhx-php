@@ -12,7 +12,9 @@ use PHPUnit\Framework\TestCase;
 
 class CustomersTest extends TestCase {
   public function testAll() {
-    $customers = \VHX\Customers::all();
+    $customers = \VHX\Customers::all(array(), array(
+      'Foo-Header' => 'bar'
+    ));
     $this->assertArrayHasKey('_links', $customers);
     $this->assertArrayHasKey('_embedded', $customers);
     $this->assertArrayHasKey('count', $customers);
@@ -21,7 +23,9 @@ class CustomersTest extends TestCase {
 
   public function testRetrieve() {
     $params = new Params();
-    $customer = \VHX\Customers::retrieve($params->customer());
+    $customer = \VHX\Customers::retrieve($params->customer(), array(
+      'Foo-Header' => 'bar'
+    ));
     $this->assertArrayHasKey('_links', $customer);
     $this->assertArrayHasKey('_embedded', $customer);
     $this->assertArrayHasKey('email', $customer);
