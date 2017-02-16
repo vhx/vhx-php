@@ -7,7 +7,7 @@ class Customers extends ApiResource {
     return self::_list($params, $headers);
   }
   public static function update($id = null, $params = array(), $headers = null) {
-    return self::_update($id, $params, $headers);
+    return self::_update($id, $params, null, $headers);
   }
   public static function retrieve($id = null, $headers = null) {
     return self::_retrieve($id, null, $headers);

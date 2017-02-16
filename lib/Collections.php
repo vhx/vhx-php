@@ -13,7 +13,7 @@ class Collections extends ApiResource {
     return self::_create($params, $headers);
   }
   public static function update($id = null, $params = array(), $headers = null) {
-    return self::_update($id, $params, $headers);
+    return self::_update($id, $params, null, $headers);
   }
   public static function items($id = null, $params = array(), $headers = null) {
     if (is_array($id) && isset($id['collection'])) {
