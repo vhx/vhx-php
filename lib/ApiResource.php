@@ -70,9 +70,16 @@ class ApiResource {
     return $params;
   }
 
-  private static function _request($method, $path, $data = array()) {
+  private static function _request($method, $path, $data = array(), $headers) {
     $curl = curl_init();
+    $formatted_headers = array();
     $url = API::$protocol . API::$host . '/' . $path;
+
+    if (is_array($headers)):
+      foreach ($headers as $key => $value):
+        array_push($formatted_headers, $key . ': ' . $value);
+      endforeach;
+    endif;
 
     if ($method === 'PUT'):
       $data['_method'] = 'PUT';
@@ -88,11 +95,15 @@ class ApiResource {
       if ($data):
         $data_str = json_encode($data);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data_str);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+        $formatted_headers = array_merge($formatted_headers, array(
           'Content-Type: application/json',
           'Content-Length: ' . strlen($data_str))
         );
       endif;
+    endif;
+
+    if (count($formatted_headers) > 0):
+      curl_setopt($curl, CURLOPT_HTTPHEADER, $formatted_headers);
     endif;
 
     if ($method === 'DELETE'):
@@ -103,7 +114,7 @@ class ApiResource {
     endif;
 
     if ($method === 'GET'):
-      $url = sprintf("%s?%s", $url, http_build_query($data));
+      $url = sprintf("%s?%s", $url, $data ? http_build_query($data) : null);
     endif;
 
     curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -131,40 +142,40 @@ class ApiResource {
     endif;
   }
 
-  protected static function _retrieve($id, $scope = null) {
+  protected static function _retrieve($id, $scope = null, $headers) {
     $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id);
     self::_hasID($id, 'retrieve');
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, null, $headers);
   }
 
-  protected static function _list($params) {
-    return self::_request('GET', self::_getResourceName() . '/', $params);
+  protected static function _list($params, $headers) {
+    return self::_request('GET', self::_getResourceName() . '/', $params, $headers);
   }
 
-  protected static function _items($id, $query, $scope = null) {
+  protected static function _items($id, $query, $scope = null, $headers) {
     $scope = isset($scope) ? '/' . $scope : '/items';
     $params = self::_getParameters($id, $query);
     self::_hasID($params['id'], $scope);
-    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
+    return self::_request('GET', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query'], $headers);
   }
 
-  protected static function _create($params) {
-    return self::_request('POST', self::_getResourceName() . '/', $params);
+  protected static function _create($params, $headers) {
+    return self::_request('POST', self::_getResourceName() . '/', $params, $headers);
   }
 
-  protected static function _update($id, $query, $scope = null) {
+  protected static function _update($id, $query, $scope = null, $headers) {
     $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id, $query);
     self::_hasID($params['id'], 'update');
-    return self::_request('PUT', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
+    return self::_request('PUT', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query'], $headers);
   }
 
-  protected static function _delete($id, $query, $scope = null) {
+  protected static function _delete($id, $query, $scope = null, $headers) {
     $scope = isset($scope) ? '/' . $scope : '';
     $params = self::_getParameters($id, $query);
     self::_hasID($params['id'], 'update');
-    return self::_request('DELETE', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query']);
+    return self::_request('DELETE', self::_getResourceName() . '/' . $params['id'] . $scope, $params['query'], $headers);
   }
 
   protected static function _handleResponse($body, $code) {

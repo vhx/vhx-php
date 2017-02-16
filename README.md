@@ -58,7 +58,19 @@ $customer = \VHX\Customers::create(array(
   email => 'customer@email.com',
   name => 'First Last',
   product => 'https://api.vhx.tv/products/1'
-});
+));
+```
+
+Headers can be passed in as the last argument, which would either be the second or third argument depending on the method. See each individual method for specifics.
+
+```php
+
+// example video create with header
+$video = \VHX\Videos::create(array(
+  title => 'My Video'
+), array(
+  'VHX-Client-IP' => '0.0.0.0'  
+));
 ```
 
 ### Resources & methods
