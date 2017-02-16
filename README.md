@@ -12,7 +12,7 @@ You can install the bindings via [Composer](http://getcomposer.org/). Add this t
 ```json
 {
   "require": {
-    "vhx/vhx-php": "1.10.*"
+    "vhx/vhx-php": "1.11.*"
   }
 }
 ```

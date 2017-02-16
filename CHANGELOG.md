@@ -1,3 +1,8 @@
+### 1.11.0
+**2017-02-16**
+
+* Add support for passing headers to all requests.
+
 ### 1.10.0
 **2017-02-01**
 
