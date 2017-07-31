@@ -1,3 +1,8 @@
+### 1.12.0
+**2017-07-31**
+
+* Merged fix for Collections->Items call
+
 ### 1.11.0
 **2017-02-16**
 
