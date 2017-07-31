@@ -20,7 +20,7 @@ class Collections extends ApiResource {
       $params = $id;
       $id = $id['collection'];
     }
-    return self::_items($id, $params, $headers);
+    return self::_items($id, $params, null, $headers);
   }
 
   // deprecated (same as items)
